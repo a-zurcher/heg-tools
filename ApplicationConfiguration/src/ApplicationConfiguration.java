@@ -25,6 +25,20 @@ public class ApplicationConfiguration {
         return config.get(key);
     }
 
+    public String[] getToutesLesValeurs() {
+        String[] valeurs = new String[config.size()];
+
+        var entrySet = config.entrySet();
+
+        int compteur = 0;
+        for (var entry : entrySet) {
+            valeurs[compteur] = entry.getKey();
+            compteur++;
+        }
+
+        return valeurs;
+    }
+
     public void chargerConfig() throws mauvaiseSyntax, configurationVide {
         chargerConfig("application.properties");
     }
