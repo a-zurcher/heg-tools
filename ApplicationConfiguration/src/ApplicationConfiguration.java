@@ -21,10 +21,16 @@ public class ApplicationConfiguration {
         return config;
     }
 
-    public void chargerConfig() throws mauvaiseSyntax {
-        config.clear();
+    public String getValeur(String key) {
+        return config.get(key);
+    }
 
-        String confFile = "application.properties";
+    public void chargerConfig() throws mauvaiseSyntax, configurationVide {
+        chargerConfig("application.properties");
+    }
+
+    public void chargerConfig(String confFile) throws mauvaiseSyntax, configurationVide {
+        config.clear();
 
         InputStream inputStream = ApplicationConfiguration.class.getClassLoader().getResourceAsStream(confFile);
 
@@ -32,31 +38,43 @@ public class ApplicationConfiguration {
         result = new BufferedReader(new InputStreamReader(Objects.requireNonNull(inputStream)))
                 .lines().collect(Collectors.joining("\n"));
 
-        // split result en string[] à chaque retour de ligne
-        for (String s: result.split("\n")) {
-            // teste si le format "clé=valeur" est respecté
-            final Pattern pattern = Pattern.compile("^[^=]+=[^=]+$", Pattern.MULTILINE);
-            final Matcher matcher = pattern.matcher(s);
-            int counter = 0;
+        if (result.isEmpty()) {
+            throw new configurationVide();
+        } else {
+            // split result en string[] à chaque retour de ligne
+            for (String s: result.split("\n")) {
+                // teste si le format "clé=valeur" est respecté
+                final Pattern pattern = Pattern.compile("^[^=]+=[^=]+$", Pattern.MULTILINE);
+                final Matcher matcher = pattern.matcher(s);
+                int counter = 0;
 
-            while (matcher.find())
-                counter++;
+                while (matcher.find())
+                    counter++;
 
-            if (counter != 1)
-                throw new mauvaiseSyntax();
+                if (counter != 1)
+                    throw new mauvaiseSyntax();
 
-            // converti la ligne en String[] en coupant au niveau de "="
-            String[] line = s.split("=");
+                // converti la ligne en String[] en coupant au niveau de "="
+                String[] line = s.split("=");
 
-            // ajoute la configuration au hashmap
-            config.put(line[0],line[1]);
+                // ajoute la configuration au hashmap
+                config.put(line[0],line[1]);
+            }
         }
+
     }
 
     public static class mauvaiseSyntax extends Exception {
         @Override
         public String toString() {
             return "Mauvaise syntaxe ! un seul signe égal par ligne est accepté, dans le format 'clé=valeur'";
+        }
+    }
+
+    public static class configurationVide extends Exception {
+        @Override
+        public String toString() {
+            return "Aucune paire de clé valeur n'a été trouvée !";
         }
     }
 }
