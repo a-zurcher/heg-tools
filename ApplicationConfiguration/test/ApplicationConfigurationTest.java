@@ -31,7 +31,7 @@ public class ApplicationConfigurationTest {
     }
 
     @Test
-    public void testGetValeurs() throws ApplicationConfiguration.mauvaiseSyntax, ApplicationConfiguration.configurationVide {
+    public void testGetValeur() throws ApplicationConfiguration.mauvaiseSyntax, ApplicationConfiguration.configurationVide {
         ApplicationConfiguration instance = ApplicationConfiguration.getInstance();
         instance.chargerConfig("application_test.properties");
 
