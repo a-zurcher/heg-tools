@@ -1,4 +1,4 @@
-package ch.heg.cours6341.counter;
+package zurcher.digital.lib.counter;
 
 import org.junit.Assert;
 import org.junit.Before;

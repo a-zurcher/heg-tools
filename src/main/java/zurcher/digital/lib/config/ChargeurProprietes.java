@@ -1,6 +1,7 @@
-package ch.heg.cours6341.config;
+package zurcher.digital.lib.config;
 
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.HashMap;
@@ -14,14 +15,17 @@ public class ChargeurProprietes {
     public static Map<String, String> charger(String file) throws ProprietesPasTrouvee, ProprietesVide, ProprietesMauvaiseSyntaxe {
         HashMap<String, String> proprietes = new HashMap<>();
 
-        InputStream inputStream = ChargeurProprietes.class.getClassLoader().getResourceAsStream(file);
-
-        if (inputStream == null)
-            throw new ProprietesPasTrouvee();
-
         String result;
-        result = new BufferedReader(new InputStreamReader(Objects.requireNonNull(inputStream)))
-                .lines().collect(Collectors.joining("\n"));
+        try (InputStream inputStream = ChargeurProprietes.class.getClassLoader().getResourceAsStream(file)) {
+
+            if (inputStream == null)
+                throw new ProprietesPasTrouvee();
+
+            result = new BufferedReader(new InputStreamReader(Objects.requireNonNull(inputStream)))
+                    .lines().collect(Collectors.joining("\n"));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
 
         if (result.isEmpty()) {
             throw new ProprietesVide();

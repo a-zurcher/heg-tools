@@ -1,4 +1,4 @@
-package ch.heg.cours6341.config;
+package zurcher.digital.lib.config;
 
 import org.junit.Assert;
 import org.junit.Test;

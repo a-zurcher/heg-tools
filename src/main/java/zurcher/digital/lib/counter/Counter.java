@@ -1,8 +1,8 @@
-package ch.heg.cours6341.counter;
+package zurcher.digital.lib.counter;
 
 public class Counter {
 
-    private static Counter INSTANCE = new Counter();
+    private static final Counter INSTANCE = new Counter();
     private long value;
 
     private Counter() {

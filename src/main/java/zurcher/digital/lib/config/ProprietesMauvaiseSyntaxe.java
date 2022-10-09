@@ -1,4 +1,4 @@
-package ch.heg.cours6341.config;
+package zurcher.digital.lib.config;
 
 public class ProprietesMauvaiseSyntaxe extends Exception {
     @Override

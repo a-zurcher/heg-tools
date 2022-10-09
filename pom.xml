@@ -4,9 +4,21 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>ch.hesge.lib</groupId>
+    <groupId>zurcher.digital.lib</groupId>
     <artifactId>HEGTools</artifactId>
     <version>1.0-SNAPSHOT</version>
+
+    <name>HEGTools</name>
+    <description>Tools developped in the context of HEG's Service Implementation module</description>
+    <url>https://github.com/a-zurcher/HEGTools</url>
+
+    <distributionManagement>
+        <repository>
+            <id>github</id>
+            <name>GitHub a-zurcher Apache Maven Packages</name>
+            <url>https://maven.pkg.github.com/a-zurcher/HEGTools</url>
+        </repository>
+    </distributionManagement>
 
     <dependencies>
         <dependency>
@@ -21,5 +33,4 @@
         <maven.compiler.target>18</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
-
 </project>
