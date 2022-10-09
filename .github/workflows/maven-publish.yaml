@@ -1,6 +1,7 @@
 name: Create package on push to master
 
 on:
+  workflow_dispatch:
   push:
     branches: [ master ]
 
