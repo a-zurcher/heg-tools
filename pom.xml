@@ -6,10 +6,10 @@
 
     <groupId>zurcher.digital.lib</groupId>
     <artifactId>HEGTools</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0</version>
 
     <name>HEGTools</name>
-    <description>Tools developped in the context of HEG's Service Implementation module</description>
+    <description>Tools developed in the context of HEG's Service Implementation module</description>
     <url>https://github.com/a-zurcher/HEGTools</url>
 
     <distributionManagement>
