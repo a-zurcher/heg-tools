@@ -3,7 +3,8 @@ name: Create package on push to master
 on:
   workflow_dispatch:
   push:
-    branches: [ main ]
+    tags:
+     - v**
 
 jobs:
   build:
@@ -22,6 +23,6 @@ jobs:
         run: mvn -e -B package --file pom.xml
 
       - name: Publish to GitHub Packages Apache Maven
-        run: mvn -X deploy -s $GITHUB_WORKSPACE/settings.xml
+        run: mvn -e deploy -s $GITHUB_WORKSPACE/settings.xml
         env:
           GITHUB_TOKEN: ${{ github.token }}
