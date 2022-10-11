@@ -1,7 +1,5 @@
 # HEGTools
 
-<picture>
-  <img alt="GitHub Actions badge" src="https://github.com/a-zurcher/heg-tools/actions/workflows/maven-publish.yaml/badge.svg">
-</picture>
+![maven-publish workflow badge](https://github.com/a-zurcher/heg-tools/actions/workflows/maven-publish.yaml/badge.svg)
 
 Outils développés dans le contexte du module Implémentation de service de la HEG
