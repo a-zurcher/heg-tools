@@ -9,7 +9,7 @@
     <version>1.0</version>
 
     <name>HEGTools</name>
-    <description>Tools developed in the context of HEG's Service Implementation module</description>
+    <description>Outils développés dans le contexte du module Implémentation de service de la HEG</description>
     <url>https://github.com/a-zurcher/HEGTools</url>
 
     <distributionManagement>
