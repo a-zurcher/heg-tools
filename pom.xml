@@ -10,13 +10,13 @@
 
     <name>HEGTools</name>
     <description>Outils développés dans le contexte du module Implémentation de service de la HEG</description>
-    <url>https://github.com/a-zurcher/HEGTools</url>
+    <url>https://github.com/a-zurcher/heg-tools</url>
 
     <distributionManagement>
         <repository>
             <id>github</id>
             <name>GitHub a-zurcher Apache Maven Packages</name>
-            <url>https://maven.pkg.github.com/a-zurcher/HEGTools</url>
+            <url>https://maven.pkg.github.com/a-zurcher/heg-tools</url>
         </repository>
     </distributionManagement>
 
