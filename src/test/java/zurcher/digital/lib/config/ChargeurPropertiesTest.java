@@ -1,20 +1,17 @@
 package zurcher.digital.lib.config;
 
-import org.junit.Test;
+
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 public class ChargeurPropertiesTest {
-    @Test (expected = ProprietesMauvaiseSyntaxe.class)
-    public void testProprieteMauvaiseSyntaxe() throws ProprietesMauvaiseSyntaxe, ProprietesVide, ProprietesPasTrouvee {
-        ChargeurProprietes.charger("application_mauvaise_syntaxe.properties");
+    @Test
+    public void testProprietesFichierInexistant() {
+        Assertions.assertThrows(ProprietesPasTrouvee.class, () -> ChargeurProprietes.charger("fichierInexistant.properties"));
     }
 
-    @Test (expected = ProprietesPasTrouvee.class)
-    public void testProprietesFichierInexistant() throws ProprietesMauvaiseSyntaxe, ProprietesVide, ProprietesPasTrouvee {
-        ChargeurProprietes.charger("fichierInexistant.properties");
-    }
-
-    @Test (expected = ProprietesVide.class)
-    public void testProprietesFichierVide() throws ProprietesMauvaiseSyntaxe, ProprietesVide, ProprietesPasTrouvee {
-        ChargeurProprietes.charger("application_vide.properties");
+    @Test
+    public void testProprietesFichierVide() {
+        Assertions.assertThrows(ProprietesVide.class, () -> ChargeurProprietes.charger("application_vide.properties"));
     }
 }
