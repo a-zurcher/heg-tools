@@ -6,7 +6,7 @@
 
     <groupId>digital.zurcher.lib</groupId>
     <artifactId>heg-tools</artifactId>
-    <version>1.0.1</version>
+    <version>1.0.2</version>
 
     <name>HEGTools</name>
     <description>Outils développés dans le contexte du module Implémentation de service de la HEG</description>
