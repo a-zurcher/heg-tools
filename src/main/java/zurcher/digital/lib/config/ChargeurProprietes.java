@@ -33,7 +33,7 @@ public class ChargeurProprietes {
             // split result en string[] à chaque retour de ligne
             for (String s : result.split("\n")) {
                 // teste si le format "clé=valeur" est respecté
-                final Pattern pattern = Pattern.compile("^[^=]+=[^=]+$", Pattern.MULTILINE);
+                final Pattern pattern = Pattern.compile("^[^=]+=(?:[^=]+|(?:\".+\"|'.+'))$", Pattern.MULTILINE);
                 final Matcher matcher = pattern.matcher(s);
                 int counter = 0;
 
