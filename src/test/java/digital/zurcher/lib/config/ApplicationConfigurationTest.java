@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 
 public class ApplicationConfigurationTest {
     @Test
-    public void testGetValeur() throws ProprietesMauvaiseSyntaxe, ProprietesVide, ProprietesPasTrouvee {
+    public void testGetValeur() throws ProprietesVide, ProprietesPasTrouvee {
         ApplicationConfiguration instance = ApplicationConfiguration.getInstance();
 
         Assertions.assertEquals(instance.getValeur("key1"), "value1");
@@ -14,9 +14,9 @@ public class ApplicationConfigurationTest {
     }
 
     @Test
-    public void testSingleton() throws ProprietesMauvaiseSyntaxe, ProprietesVide, ProprietesPasTrouvee {
-        ApplicationConfiguration instance1= ApplicationConfiguration.getInstance();
-        ApplicationConfiguration instance2= ApplicationConfiguration.getInstance();
+    public void testSingleton() throws ProprietesVide, ProprietesPasTrouvee {
+        ApplicationConfiguration instance1 = ApplicationConfiguration.getInstance();
+        ApplicationConfiguration instance2 = ApplicationConfiguration.getInstance();
         Assertions.assertEquals(instance1, instance2);
     }
 }

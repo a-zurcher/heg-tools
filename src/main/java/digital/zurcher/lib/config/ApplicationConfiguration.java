@@ -7,11 +7,11 @@ public class ApplicationConfiguration {
     private static ApplicationConfiguration instance;
     private Map<String,String> config = new HashMap<>();
 
-    private ApplicationConfiguration () throws ProprietesPasTrouvee, ProprietesMauvaiseSyntaxe, ProprietesVide {
+    private ApplicationConfiguration () throws ProprietesPasTrouvee, ProprietesVide {
         chargerConfig();
     }
 
-    public static synchronized ApplicationConfiguration getInstance() throws ProprietesPasTrouvee, ProprietesMauvaiseSyntaxe, ProprietesVide {
+    public static synchronized ApplicationConfiguration getInstance() throws ProprietesPasTrouvee, ProprietesVide {
         if (instance == null)
             instance = new ApplicationConfiguration();
 
@@ -26,7 +26,7 @@ public class ApplicationConfiguration {
         return config.get(key);
     }
 
-    private void chargerConfig() throws ProprietesMauvaiseSyntaxe, ProprietesVide, ProprietesPasTrouvee {
+    private void chargerConfig() throws ProprietesVide, ProprietesPasTrouvee {
         config = ChargeurProprietes.charger("application.properties");
     }
 }
