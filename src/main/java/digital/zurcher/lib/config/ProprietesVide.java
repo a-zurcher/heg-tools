@@ -1,4 +1,4 @@
-package zurcher.digital.lib.config;
+package digital.zurcher.lib.config;
 
 public class ProprietesVide extends Exception {
     @Override

@@ -1,4 +1,4 @@
-package zurcher.digital.lib.config;
+package digital.zurcher.lib.config;
 
 import java.io.BufferedReader;
 import java.io.IOException;

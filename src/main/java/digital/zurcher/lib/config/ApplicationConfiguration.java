@@ -1,4 +1,4 @@
-package zurcher.digital.lib.config;
+package digital.zurcher.lib.config;
 
 import java.util.HashMap;
 import java.util.Map;
